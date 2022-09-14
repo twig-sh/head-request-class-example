@@ -1,4 +1,5 @@
-// Note this object is purely in memory
+// Note this object is purely in memory.
+// It will be reset each time the server restarts.
 const users = {};
 
 const respondJSON = (request, response, status, object) => {
@@ -32,7 +33,7 @@ const notFound = (request, response) => {
     message: 'The page you are looking for was not found.',
     id: 'notFound',
   }
-  
+
   return respondJSON(request, response, 404, responseJSON);
 };
 
