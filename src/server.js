@@ -5,8 +5,19 @@ const jsonHandler = require('./jsonResponses.js');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
+const urlStruct = {
+  '/': htmlHandler.getIndex,
+  notFound: jsonHandler.notFound,
+}
+
 const onRequest = (request, response) => {
   const parsedUrl = url.parse(request.url);
+
+  if(urlStruct[parsedUrl.pathname]){
+    urlStruct[parsedUrl.pathname](request, response);
+  } else {
+    urlStruct.notFound(request, response);
+  }
 
 
 };
