@@ -2,7 +2,7 @@
   "name": "simple_head_requests",
   "version": "0.0.0",
   "description": "Handling head and get requests via node",
-  "main": "server.js",
+  "main": "./src/server.js",
   "scripts": {
     "start": "node ./src/server.js",
     "pretest": "eslint ./src --fix",
@@ -11,8 +11,8 @@
   "author": "Cody Van De Mark / Austin Willoughby",
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^8.23.1",
+    "eslint": "^8.33.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.26.0"
+    "eslint-plugin-import": "^2.27.5"
   }
 }
