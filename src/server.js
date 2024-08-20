@@ -1,5 +1,4 @@
 const http = require('http');
-const url = require('url');
 const htmlHandler = require('./htmlResponses.js');
 const jsonHandler = require('./jsonResponses.js');
 
@@ -11,15 +10,14 @@ const urlStruct = {
 }
 
 const onRequest = (request, response) => {
-  const parsedUrl = url.parse(request.url);
+  const protocol = request.connection.encrypted ? 'https' : 'http';
+  const parsedUrl = new URL(request.url, `${protocol}://${request.headers.host}`);
 
   if(urlStruct[parsedUrl.pathname]){
     urlStruct[parsedUrl.pathname](request, response);
   } else {
     urlStruct.notFound(request, response);
   }
-
-
 };
 
 http.createServer(onRequest).listen(port, () => {
