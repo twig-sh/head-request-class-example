@@ -3,24 +3,10 @@
 const users = {};
 
 const respondJSON = (request, response, status, object) => {
-  const headers = {
-    'Content-Type': 'application/json',
-  };
   
-  response.writeHead(status, headers);
-  response.write(JSON.stringify(object));
-  response.end();
-};
-
-const respondJSONMeta = (request, response, status) => {
-
 };
 
 const getUsers = (request, response) => {
-
-};
-
-const getUsersMeta = (request, response) => {
 
 };
 
@@ -37,14 +23,8 @@ const notFound = (request, response) => {
   return respondJSON(request, response, 404, responseJSON);
 };
 
-const notFoundMeta = (request, response) => {
-
-};
-
 module.exports = {
   getUsers,
-  getUsersMeta,
   updateUser,
   notFound,
-  notFoundMeta,
 };
